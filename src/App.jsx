@@ -6,13 +6,12 @@ import TodoNew from './components/todo/TodoNew'
 const App = () => {
 
   const [todoList, setTodoList] = useState([
-    { id: 1, name: "Watching Youtube" },
-    { id: 2, name: "Scrolling Facebook" }
+    // { id: 1, name: "Watching Youtube" },
+    // { id: 2, name: "Scrolling Facebook" }
   ])
-  const age = 25;
-  const data = { address: "Ha Noi", age: 25 }
 
-  const newFunction = (name) => {
+
+  const addNewTodo = (name) => {
     const newTodo = {
       id: randomIntFromInterval(1, 10000000),
       name: name
@@ -29,10 +28,9 @@ const App = () => {
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
       <TodoNew
-        newFunction={newFunction} />
+        addNewTodo={addNewTodo} />
       <TodoData
-        age={age}
-        data={data}
+
         todoList={todoList}
 
 
