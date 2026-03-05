@@ -9,7 +9,9 @@ const App = () => {
     // { id: 1, name: "Watching Youtube" },
     // { id: 2, name: "Scrolling Facebook" }
   ])
-
+  const deleteTodo = (id) => {
+    setTodoList(todoList.filter(item => item.id !== id))
+  }
 
   const addNewTodo = (name) => {
     const newTodo = {
@@ -27,17 +29,33 @@ const App = () => {
   return (
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
+
       <TodoNew
         addNewTodo={addNewTodo} />
-      <TodoData
 
-        todoList={todoList}
+      {todoList.length > 0 ?
+        <TodoData
+          todoList={todoList}
+          deleteTodo={deleteTodo}
+        />
+        :
+        <div className="todo-image">
+          <img src={reactLogo} className='logo' />
+        </div>
+      }
+      {/* {todoList.length > 0 &&
+        <TodoData
+          todoList={todoList}
+        />}
+
+      {todoList.length === 0 &&
+
+        <div className="todo-image">
+          <img src={reactLogo} className='logo' />
+        </div>
 
 
-      />
-      <div className="todo-image">
-        <img src={reactLogo} className='logo' />
-      </div>
+      } */}
 
     </div>
   )
