@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import Footer from './components/layout/footer'
 import Header from './components/layout/header'
@@ -51,6 +52,7 @@ const App = () => {
 
 
       </div>
+      <Outlet />
       <Footer />
     </>
 
