@@ -5,6 +5,7 @@ import { fetchAllUser } from '../../services/api.services';
 const UserTable = () => {
     // k bi render lai
     const [dataUser, setDataUser] = useState([]);
+    // dung de bat cac state hoac props, se so sanh voi dom de re-render lai
     useEffect(() => {
         loadUser()
         console.log("Init api")
