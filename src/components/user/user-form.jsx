@@ -1,7 +1,8 @@
 import { Button, Input, Modal, notification } from 'antd';
 import { useState } from 'react';
 import { createUserAPI } from '../../services/api.services';
-const UserForm = () => {
+const UserForm = (props) => {
+    const { loadUser } = props;
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -16,14 +17,23 @@ const UserForm = () => {
 
                 description: "Crate success"
             })
+
+            resetAndCloseModal()
+            await loadUser()
         } else {
             notification.error({
                 message: "Failed to create user",
                 description: JSON.stringify(res.message)
             })
         }
-        setIsModalOpen(false)
     };
+    const resetAndCloseModal = () => {
+        setIsModalOpen(false)
+        setFullName("")
+        setEmail("")
+        setPassword("")
+        setPhone("")
+    }
     return (
         <div className='user-form' style={{ margin: "20px 0" }}>
 
